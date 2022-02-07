@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import com.movie.managment.model.customer.*;
 import com.movie.managment.repository.CustomerRepository;
-import com.training.spring.boot.rest.controllers.TutorialResponseModel;
 
 
 
