@@ -1,6 +1,7 @@
 package com.movie.managment.model;
 
 
+import java.util.Set;
 import java.util.UUID;
 
 import javax.persistence.*;
@@ -19,7 +20,11 @@ public class Director {
 	private String directorId;
 	private String firstName;
 	private String lastName;
-
+	
+	
+	@ManyToMany
+	private Set<MovieCast> movieCast;
+	
 
 	public Director(String actorId, String firstName, String lastName) {
 		super();
