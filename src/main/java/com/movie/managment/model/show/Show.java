@@ -27,7 +27,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class Show {
 	@Id
-	private String showID;
+	private String showId;
 	private Date showDate;
 	private Time startTime;
 	private Time endTime;
