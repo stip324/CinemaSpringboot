@@ -1,13 +1,10 @@
 package com.movie.managment.model;
 
-import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -15,24 +12,24 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "cinemaHall")
+@Table(name = "cinemaSeat")
 @Getter
 @Setter
 @ToString
 @EqualsAndHashCode
-public class CinemaHall {
+public class CinemaSeat {
 	@Id
-	private String HallId;
-	
-	@OneToMany
-	//@JoinColumn(name="cinema_seat_Id")
-	private Set<CinemaSeat> cinemaSeat;
+	private String cinemaSeatId;
+	private boolean premium;
 	
 	@ManyToOne
-	//@JoinColumn(name="cinema_Id")
-	private Cinema cinema;
-	public CinemaHall() {
+	private CinemaHall cinemaHall;
+	public CinemaSeat() {
 		// TODO Auto-generated constructor stub
+	}
+	public CinemaSeat(CinemaHall cinemaHall) {
+		super();
+		this.cinemaHall = cinemaHall;
 	}
 
 }

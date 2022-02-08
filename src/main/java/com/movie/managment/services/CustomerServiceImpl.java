@@ -14,7 +14,6 @@ import com.movie.managment.repository.CustomerRepository;
 
 
 
-
 @Service
 public class CustomerServiceImpl {
 	@Autowired
