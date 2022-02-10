@@ -1,15 +1,17 @@
 package com.movie.managment.model.movie;
 
+import java.time.LocalTime;
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.movie.managment.model.Genres;
 import com.movie.managment.model.MovieCast;
 import com.movie.managment.model.show.Show;
@@ -30,15 +32,15 @@ public class Movie {
 	private String movieId;
 	private String movieName;
 	private String description;
+	//change to moviecast?
 	private String[] starring;
-	private int runTime;
+	@JsonFormat(pattern = "HH:mm:ss")
+	private LocalTime runTime;
 	private String slug;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "genres_id")
 	private Genres genres;
 	
-	@OneToOne(mappedBy="movie")
-	private Show show;
 	
 	@OneToOne(mappedBy="movie")
 	private MovieCast movieCast;
@@ -47,7 +49,7 @@ public class Movie {
 		
 	}
 
-	public Movie(String movieId, String movieName, String description, String[] starring, int runTime, String slug) {
+	public Movie(String movieId, String movieName, String description, String[] starring, LocalTime runTime, String slug) {
 		super();
 		this.movieId = movieId;
 		this.movieName = movieName;

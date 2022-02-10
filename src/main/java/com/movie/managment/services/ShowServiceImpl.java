@@ -9,13 +9,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.movie.managment.model.movie.Movie;
-import com.movie.managment.model.movie.MovieRequestModel;
-import com.movie.managment.model.movie.MovieResponseModel;
 import com.movie.managment.model.show.Show;
 import com.movie.managment.model.show.ShowRequestModel;
 import com.movie.managment.model.show.ShowResponseModel;
-import com.movie.managment.repository.MovieRepository;
 import com.movie.managment.repository.ShowRepository;
 
 @Service
@@ -29,15 +25,17 @@ public class ShowServiceImpl {
 		show.setShowDate(request.getShowDate());
 		show.setStartTime(request.getStartTime());
 		show.setEndTime(request.getEndTime());
+		show.setPrice(request.getPrice());
 		show.setMovie(request.getMovie());
-		//m.setGenresId(request.get);
+		
 		showRepository.save(show);
 		ShowResponseModel response =new ShowResponseModel();
-		response.setShowId(response.getShowId());
-		response.setShowDate(response.getShowDate());
-		response.setStartTime(response.getStartTime());
-		response.setEndTime(response.getEndTime());
-		response.setMovie(response.getMovie());
+		response.setShowId(show.getShowId());
+		response.setShowDate(show.getShowDate());
+		response.setStartTime(show.getStartTime());
+		response.setPrice(show.getPrice());
+		response.setEndTime(show.getEndTime());
+		response.setMovie(show.getMovie());
 		
 
 		return response;

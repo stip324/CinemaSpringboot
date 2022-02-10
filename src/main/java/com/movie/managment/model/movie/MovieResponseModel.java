@@ -1,5 +1,7 @@
 package com.movie.managment.model.movie;
 
+import java.time.LocalTime;
+
 import lombok.*;
 
 @Getter
@@ -10,7 +12,7 @@ public class MovieResponseModel {
 	private String movieName;
 	private String description;
 	private String[] starring;
-	private int runTime;
+	private LocalTime runTime;
 	private String slug;
 
 
@@ -21,7 +23,7 @@ public class MovieResponseModel {
 
 
 
-	public MovieResponseModel(String movieId, String movieName, String description, String[] starring, int runTime,
+	public MovieResponseModel(String movieId, String movieName, String description, String[] starring, LocalTime runTime,
 			String slug) {
 		super();
 		this.movieId = movieId;
