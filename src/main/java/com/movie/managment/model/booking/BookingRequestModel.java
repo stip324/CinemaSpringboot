@@ -13,20 +13,29 @@ import lombok.Setter;
 public class BookingRequestModel {
 	private String bookingId;
 	
-	private CinemaSeat seatNumber;
+	private String movieName;
 	
-
-	private Show show;
+	private String numberOfTickets;
 	
-	private Customer customer;
+	private String date;
+	
+	private String time;
+	
+	private String customerEmail;
 
-	public BookingRequestModel(String bookingId, CinemaSeat seatNumber, Show show, Customer customer) {
+	public BookingRequestModel(String bookingId, String movieName, String numberOfTickets, String date, String time,
+			String customerEmail) {
 		super();
 		this.bookingId = bookingId;
-		this.seatNumber = seatNumber;
-		this.show = show;
-		this.customer = customer;
+		this.movieName = movieName;
+		this.numberOfTickets = numberOfTickets;
+		this.date = date;
+		this.time = time;
+		this.customerEmail = customerEmail;
 	}
+	
+
+
 
 
 	

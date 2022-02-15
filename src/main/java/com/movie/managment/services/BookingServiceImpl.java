@@ -23,15 +23,19 @@ public class BookingServiceImpl {
 	public BookingResponseModel createBooking(BookingRequestModel request) {
 		Booking booking =new Booking();
 		booking.setBookingId(UUID.randomUUID().toString());
-		booking.setCustomer(request.getCustomer());
-		booking.setShow(request.getShow());
-		booking.setSeatNumber(request.getSeatNumber());
+		booking.setCustomerEmail(request.getCustomerEmail());
+		booking.setDate(request.getDate());
+		booking.setMovieName(request.getMovieName());
+		booking.setNumberOfTickets(request.getNumberOfTickets());
+		booking.setTime(request.getTime());
 		BookingRepository.save(booking);
 		BookingResponseModel response =new BookingResponseModel();
 		response.setBookingId(booking.getBookingId());
-		response.setCustomer(booking.getCustomer());
-		response.setShow(booking.getShow());
-		response.setSeatNumber(booking.getSeatNumber());
+		response.setCustomerEmail(booking.getCustomerEmail());
+		response.setDate(booking.getDate());
+		response.setMovieName(booking.getMovieName());
+		response.setNumberOfTickets(booking.getNumberOfTickets());
+		response.setTime(booking.getTime());
 
 		return response;
 

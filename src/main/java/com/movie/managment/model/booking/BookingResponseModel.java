@@ -1,9 +1,5 @@
 package com.movie.managment.model.booking;
 
-import com.movie.managment.model.CinemaSeat;
-import com.movie.managment.model.customer.Customer;
-import com.movie.managment.model.show.Show;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,19 +8,29 @@ import lombok.Setter;
 public class BookingResponseModel {
 private String bookingId;
 	
-	private CinemaSeat seatNumber;
+	private String movieName;
 	
+	private String numberOfTickets;
+	
+	private String date;
+	
+	private String time;
+	
+	private String customerEmail;
 
-	private Show show;
-	
-	private Customer customer;
-	public BookingResponseModel() {}
-	public BookingResponseModel(String bookingId, CinemaSeat seatNumber, Show show, Customer customer) {
+	public BookingResponseModel(String bookingId, String movieName, String numberOfTickets, String date, String time,
+			String customerEmail) {
 		super();
 		this.bookingId = bookingId;
-		this.seatNumber = seatNumber;
-		this.show = show;
-		this.customer = customer;
+		this.movieName = movieName;
+		this.numberOfTickets = numberOfTickets;
+		this.date = date;
+		this.time = time;
+		this.customerEmail = customerEmail;
+	}
+
+	public BookingResponseModel() {
+		// TODO Auto-generated constructor stub
 	}
 
 }

@@ -35,14 +35,14 @@ public class BookingController {
 	}
 
 
-	@GetMapping(value = "/boooking", produces = "application/json")
+	@GetMapping(value = "/booking", produces = "application/json")
 	public ResponseEntity<List<BookingResponseModel>> getAllBooking() {
 		List<BookingResponseModel> returnList =   bookingService.getAllBooking();
   		return new ResponseEntity<List<BookingResponseModel>>(returnList, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/booking/id/{id}", method = RequestMethod.GET, produces = "application/json")
-	public ResponseEntity<BookingResponseModel> getBookingById(@PathVariable("id") String id) {
+	public ResponseEntity<BookingResponseModel> getMovieById(@PathVariable("id") String id) {
 
 		BookingResponseModel object =   bookingService.getBookingById(id);
         if(object != null) {
@@ -56,7 +56,7 @@ public class BookingController {
 	// if id exists, then update the resource
 	// PUT
 	@RequestMapping(value = "/booking/{id}", method = RequestMethod.PUT, produces = "application/JSON", consumes = "application/JSON")
-	public ResponseEntity<BookingResponseModel> updateBooking(@PathVariable("id") String id,
+	public ResponseEntity<BookingResponseModel> updateMovie(@PathVariable("id") String id,
 			@RequestBody BookingRequestModel requestModel) {
 		
 		BookingResponseModel responseObject =   bookingService.updateBooking(id, requestModel);
@@ -71,7 +71,7 @@ public class BookingController {
 	// accept id from client, delete corresponding resource from server
 	// DELETE
 	@RequestMapping(value = "/booking/{id}", method = RequestMethod.DELETE)
-	public void deleteBooking(@PathVariable("id") String id) {
+	public void deleteTutorial(@PathVariable("id") String id) {
 		bookingService.deleteBooking(id);
 	}
 

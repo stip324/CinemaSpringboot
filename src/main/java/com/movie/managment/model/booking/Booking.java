@@ -2,14 +2,8 @@ package com.movie.managment.model.booking;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
-import com.movie.managment.model.CinemaSeat;
-import com.movie.managment.model.customer.Customer;
-import com.movie.managment.model.show.Show;
+import javax.persistence.Table;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -26,29 +20,34 @@ public class Booking {
 	@Id
 	private String bookingId;
 	
-	@OneToOne
-	private CinemaSeat seatNumber;
+	private String movieName;
 	
-	@OneToOne
-	private Show show;
+	private String numberOfTickets;
 	
-	@ManyToOne
-	private Customer customer;
+	private String date;
 	
+	private String time;
+	
+	private String customerEmail;
 	
 	
 	public Booking() {
 		// TODO Auto-generated constructor stub
 	}
 
-	
 
-	public Booking(String bookingId, CinemaSeat seatNumber, Show show, Customer customer) {
+
+	public Booking(String bookingId, String movieName, String numberOfTickets, String date, String time,
+			String customerEmail) {
 		super();
 		this.bookingId = bookingId;
-		this.seatNumber = seatNumber;
-		this.show = show;
-		this.customer = customer;
+		this.movieName = movieName;
+		this.numberOfTickets = numberOfTickets;
+		this.date = date;
+		this.time = time;
+		this.customerEmail = customerEmail;
 	}
+
+	
 
 }
